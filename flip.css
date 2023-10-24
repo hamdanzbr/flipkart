@@ -1,0 +1,379 @@
+.custom-search-box {
+    width: 450px !important; /* Set width to 450px with !important */
+  }
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
+
+
+.sticky-images img{
+    height: 50px;
+}
+
+.rating-box {
+    background-color: darkgreen;
+    /* Green background color */
+    color: #fff;
+    /* White text color */
+    padding: 2px 8px;
+    /* Adjust padding as needed */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 7%;
+}
+
+.flip-logos {
+    display: flex;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 0px;
+    width: 400px;
+    /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+.row1 {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    /* Adjust the padding between rows as needed */
+    margin-left: 20px;
+}
+
+.row2 {
+    align-items: center;
+    padding: 5px 0;
+    /* Adjust the padding between rows as needed */
+    margin-left: 20px;
+}
+
+.radio {
+    margin-right: 10px;
+    /* Adjust the margin between radio buttons and text as needed */
+
+}
+
+.divider {
+    padding: 0;
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+    /* Adjust the margin above and below the divider line */
+}
+
+.search-box {
+    border: none;
+    border-bottom: 1px solid yellow;
+    width: 200px;
+    padding: 5px;
+    outline: none;
+    position: relative;
+}
+
+.search-box::after {
+    content: attr(placeholder);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    /* Ensure placeholder text doesn't interfere with input */
+    color: #ccc;
+    /* Placeholder text color */
+}
+
+
+.rate-box {
+    background-color: darkgreen;
+    /* Green background color */
+    color: #fff;
+    /* White text color */
+    padding: 2px 8px;
+
+
+    /* Adjust padding as needed */
+    height: 24px;
+    border-radius: 20px;
+    /* Rounded corners */
+    width: 7%;
+}
+
+.product-box {
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.product {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.product:last-child {
+    border-bottom: none;
+    /* Remove the border from the last row */
+}
+
+.product:nth-child(1) {
+    height: 50px;
+    /* Adjust the height of the first row */
+}
+
+.product:nth-child(2) {
+    height: 100px;
+    /* Adjust the height of the second row */
+}
+
+.product:nth-child(3) {
+    height: 190px;
+    /* Adjust the height of the third row */
+}
+
+.product:nth-child(4) {
+    height: 60px;
+    /* Adjust the height of the fourth row */
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    /* Adjust the width as needed */
+}
+
+.reviews img {
+    height: 60px;
+    width: 30px;
+
+}
+
+.bar {
+    height: 10px;
+    /* Adjust the height of the bars */
+    background-color: #ccc;
+    /* Default background color for the bars */
+    margin: 5px 0;
+    border-radius: 20px;
+    /* Rounded corners for bars */
+    overflow: hidden;
+    /* Hides overflow content outside the rounded corners */
+}
+
+.star {
+    height: 100%;
+    background-color: #ffac33;
+    /* Color for the filled stars */
+    border-radius: 20px;
+    /* Rounded corners for stars */
+}
+
+.skill-bar {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.circle {
+    width: 100px;
+    /* Adjust the circle size as needed */
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid green;
+    /* Green border */
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.interest img {
+    height: 100px;
+    width: 50px;
+
+}
+
+.interest .card-body {
+    margin-left: 100px;
+    margin-top: -100px;
+}
+
+a {
+    text-decoration: none;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+@media screen and (max-width:990px) {
+
+   .carrier{
+    width: 100%;
+    
+    
+   }
+
+   .first-dropdowns .col-6 .dropdown {
+    margin-left: -140px;
+    
+    
+    
+   }
+
+   .first-dropdowns .col-6  button{
+    font-size: 10px !important;
+}
+
+   .first-dropdowns .row .col-6 .flights{
+    
+    margin-left: -90px !important;
+   }
+
+  
+
+   .carrier  .row .col-md-4 {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    
+   }
+
+   .carrier  .row .col-md-4 .img-fluid{
+    float: left;
+    gap: 0.5cm;
+   }
+
+   .carrier  .row .col-md-4 .col-md-9 .product-image{
+    width: 200px;
+    height: 160px;
+    margin-top: 2px;
+   }
+
+   .skill-bar{
+    width: 50px;
+
+   }
+
+   .circle{
+    height: 50px;
+    width: 50px;
+   }
+
+   .skill-bar .text{
+    font-size: 12px;
+   }
+
+   .more-review{
+    margin-top:  -10px;
+   }
+
+   .product-enquiry h3{
+    font-size: 20px;
+   
+   }
+
+   .mail{
+    font-size: 15px;
+   }
+   .address{
+    font-size: 12px;
+   }
+
+   
+
+   .icon1{
+    margin-left: -0px !important;
+   
+   }
+
+   html{
+    overflow-x: hidden;
+   }
+
+   .col-md-7{
+    overflow-y: scroll;
+    overflow-x: hidden
+
+   }
+
+  
+
+
+
+
+    
+
+    
+}
+
+@media screen and (min-width:1024px) and (max-width:1280px) {
+    .carrier nav img{
+        margin-left: -90px;
+    }
+    .custom-search-box{
+        width: 200px !important;
+    }
+
+    .col-md-4 .fa-heart{
+        margin-left: -100px;
+    }
+
+    .product-image{
+        width: 200px;
+    }
+    .col-md-4 .button{
+        margin-top: -150px;
+    }
+
+    .skill-bar{
+        width: 50px;
+    
+       }
+    
+       .circle{
+        height: 50px;
+        width: 50px;
+       }
+    
+       .skill-bar .text{
+        font-size: 12px;
+       }
+
+       .highly-durable p{
+        font-size: 12px;
+       }
+
+       .mail{
+        font-size: 15px;
+       }
+       .address{
+        font-size: 12px;
+       }
+
+       .icon1{
+        margin-left: -0px !important;
+       
+       }
+    
+
+
+    html{
+        overflow-x: hidden;
+    }
+
+    .col-md-7{
+        overflow-y: scroll;
+        overflow-x: hidden
+    
+       }
+    
+}

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="flip.css">
+
+
+</head>
+
+<body>
+
+    <div class="carrier">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
+            <a class="navbar-brand" href="#" style="margin-left: 140px;">
+                <img src="data:image/jpeg;base64,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"
+                    width="90" height="50" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="margin-left: 90px;">
+                    <li class="nav-item">
+                        <form class="form-inline">
+                            <input class="form-control custom-search-box" type="text" placeholder="Search for products and more brands"
+                                aria-label="Search">
+                        </form>
+                    </li>
+                    <li class="nav-item" style="margin-left: 30px;">
+                        <button class="btn btn-light ml-2" type="button">Login</button>
+                    </li>
+                    <li class="nav-item" style="margin-left: 100px;">
+                        <a class="nav-link" href="#">Become a Seller</a>
+                    </li>
+                    <div class="dropdown ml-5">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="moreDropdown"
+                            data-toggle="dropdown" style="border: none;">
+                            More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="moreDropdown">
+                            <a class="dropdown-item" href="#">Item 1</a>
+                            <a class="dropdown-item" href="#">Item 2</a>
+                            <a class="dropdown-item" href="#">Item 3</a>
+                        </div>
+                    </div>
+                    <li class="nav-item" style="margin-left: 70px;">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- drpdowns -->
+        <div class="dropdowns first-dropdowns" style="border-bottom: 1px solid;">
+            <div class="row" style="gap: 3px;">
+                <div class="col-6 col-md-1" style="margin-left: 160px;">
+                    <!-- Dropdown 1 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">Electronics</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item" href="#">Option 1</a>
+                            <a class "dropdown-item" href="#">Option 2</a>
+                            <a class="dropdown-item" href="#">Option 3</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1">
+                    <!-- Dropdown 2 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">TVs & Appliances</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">Option A</a>
+                            <a class="dropdown-item" href="#">Option B</a>
+                            <a class="dropdown-item" href="#">Option C</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1 ml-5">
+                    <!-- Dropdown 2 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">Men</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">Option A</a>
+                            <a class="dropdown-item" href="#">Option B</a>
+                            <a class="dropdown-item" href="#">Option C</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1" style="margin-left: -39px;">
+                    <!-- Dropdown 2 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">Women</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">Option A</a>
+                            <a class="dropdown-item" href="#">Option B</a>
+                            <a class="dropdown-item" href="#">Option C</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1" style="margin-left: -35px;">
+                    <!-- Dropdown 2 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">Baby & kids</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">Option A</a>
+                            <a class="dropdown-item" href="#">Option B</a>
+                            <a class="dropdown-item" href="#">Option C</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1 ml-2">
+                    <!-- Dropdown 2 -->
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b style="font-weight: 500;">Home & Furnitures</b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" href="#">Option A</a>
+                            <a class="dropdown-item" href="#">Option B</a>
+                            <a class="dropdown-item" href="#">Option C</a>
+                            <!-- Add more dropdown items as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-1  mt-2" style="margin-left: 160px;">
+                    <a class="text-dark flights" style="font-weight: 500;" href="#">Flights</a>
+                </div>
+                <div class="col-6 col-md-1 mt-2">
+                    <a class="text-dark offer" style="font-weight: 500;" href="#">Offer Zone</a>
+                </div>
+                <!-- Repeat the above structure for other dropdowns and links -->
+            </div>
+        </div>
+        <div class="row mt-3 ml-4">
+
+
+            <div class="col-md-4 border border-1 sticky-column"
+                style="height: 600px; position: sticky;  top: 0; margin-top: 0px;">
+                <div class="mt-2" style="margin-left: 460px;"><a href=""><i class="fa-regular fa-heart"></i></a></div>
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <div class="sticky-images">
+                            <div class=" mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70"
+                                    alt="Small Image 1" class="img-fluid">
+                            </div>
+                            <div class="col- mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/2/7/h/-original-imagtc5fyznz42bx.jpeg?q=70"
+                                    alt="Small Image 2" class="img-fluid">
+                            </div>
+                            <div class=" mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/u/m/3/-original-imagtc5ffhbausfy.jpeg?q=70"
+                                    alt="Small Image 3" class="img-fluid">
+                            </div>
+                            <div class=" mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/a/v/k/-original-imagtc5fx9jzazdy.jpeg?q=70"
+                                    alt="Small Image 4" class="img-fluid">
+                            </div>
+                            <div class=" mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/r/s/1/-original-imagtc5fxxhhgtrz.jpeg?q=70"
+                                    alt="Small Image 5" class="img-fluid">
+                            </div>
+                            <div class="mb-3">
+                                <img src="https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/u/m/3/-original-imagtc5ffhbausfy.jpeg?q=70"
+                                    alt="Small Image 6" class="img-fluid">
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-9 container">
+                        <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70"
+                            alt="Big Image" class="product-image">
+                    </div>
+                </div>
+                <div class="button  mb-3 " style="margin-left: 100px;">
+                    <button class=" btn btn-light text-primary ml-1 mt-5 text-light"
+                        style="background-color: #ffa001; height: 60px;width: 160px;" type="button"><i
+                            class="fa-solid fa-cart-shopping"></i>Add to cart</button> <span><button
+                            class="btn btn-light text-primary ml-2 mt-5  text-light"
+                            style="background-color: #fb641b; height: 60px;width: 160px;" type="button"><i
+                                class="fa-solid fa-bolt-lightning" style="color: white;"></i>Buy
+                            Now</button></span>
+                </div>
+
+            </div>
+            <div class="col-md-7 ml-2  container">
+                <div class="row">
+                    <div class="col-9 ">
+                        <a class="fw-light text-dark" href="#">Home</a> &gt;
+                        <a class="fw-light text-dark" href="#">Mobiles and Accessories</a> &gt;
+                        <a class="fw-light text-dark" href="#">Mobiles</a> &gt;
+                        <a class="fw-light text-dark" href="#">Apple Mobiles</a> &gt;
+                        <a class="fw-light text-dark" href="#">Apple iPhone</a>
+                    </div>
+                    <div class="col-3 ">
+                        <label>
+                            <input type="checkbox"> Compare
+                        </label>
+                        <a class="ml-2 fw-light text-dark" href="#"><i class="fa-solid fa-share"
+                                style="color: grey;"></i>Share</a>
+                    </div>
+                </div>
+
+                <h5>Apple iphone 15 (blue,128gb)</h5>
+                <div class="flip-logos">
+                    <div class="rating-box"><a class="text-light" style="text-decoration: none;" href="">4.7</a>
+                        &#9733; </div>
+                    <a class="ml-2" style="color: #333;text-decoration: none;" href="">480 ratings
+                        & 49 reviews</a>
+                    <img class="ml-2" style="height: 20px;"
+                        src="data:image/jpeg;base64,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"
+                        alt="flipkart assured">
+                </div>
+
+                <h3 class="mt-2">79,000</h3>
+                <p>+99/- packaging fee </p>
+                <h6>Available Offers</h6>
+                <p><i class="fa-solid fa-tag" style="color: green;"></i><span class="ml-2"><b>Bank
+                            Offer</b> 10% off on
+                        ICICI Bank Credit Card, up to ₹1000 on orders of ₹5,000 and above</span><span><a
+                            href="">T&C</a></span></p>
+                <p><i class="fa-solid fa-tag" style="color: green;"></i><span class="ml-2"><b>Bank
+                            Offer</b> 10% off on
+                        Select ICICI Bank Credit Cards, up to ₹1000 on orders of ₹5,000 and
+                        above</span><span><a href="">T&C</a></span></p>
+                <p><i class="fa-solid fa-tag" style="color: green;"></i> <span class="ml-2"><b> Bank
+                            Offer</b> 10% off on
+                        Axis Bank and Citi Credit Card, up to ₹1000 on orders of ₹5,000 and
+                        above</span><span><a href="">T&C</a></span></p>
+                <p><i class="fa-solid fa-tag" style="color: green;"></i><span class="ml-2"><b>Partner
+                            Offer</b> Sign-up
+                        for
+                        Flipkart Pay Later & get free Times Prime Benefits worth</span>
+                    ₹20,000*<span><a href="">Know more</a></span></p>
+                <a style="text-decoration: none;" href="">View 13 more offers</a>
+
+                <div class="box mt-4">
+                    <div class="row1 pt-2">
+                        <input type="radio" class="radio" name="group1">
+                        <label for="option1">Buy without Exchange<span class="ml-5"><b>79,000</b></span></label>
+                    </div>
+                    <div class="divider"></div> <!-- Divider line -->
+                    <div class="row2">
+                        <input type="radio" class="radio" name="group1">
+                        <label for="option2">Buy with Exchange <span class="ml-5">upto 39,150
+                                off</span></label><br>
+                        <center><a class=" mt-2 text-danger" style="text-decoration: none;" href="">Enter
+                                pincode to
+                                check if exchange is available</a></center>
+
+                    </div>
+                </div>
+
+                <div class="apple-warranty" style="display: flex;">
+                    <div class="apple-logo border border-2 mt-4" style="width: 25px;height: 25px;">
+                        <i class="fa-brands fa-apple ml-1 mt-1" style="color: green;"></i>
+                    </div>
+                    <p class="ml-3 mt-4">1 Year Warranty for Phone and 6 Months Warranty for In-Box
+                        Accessories
+                        <a href="">Know More</a>
+                    </p>
+
+                </div>
+
+                <div class="storage" style="display: flex;">
+                    <p class="fs-5 fw-light">storage</p>
+                    <a style="text-decoration: none;" href="">
+                        <div class="border border-2 ml-3" style="height: 33px;">128gb</div>
+                    </a>
+                    <a class="text-dark" style="text-decoration: none;" href="">
+                        <div class="border border-2 ml-2" style="height: 33px;">256gb</div>
+                    </a>
+                    <a class="text-dark" style="text-decoration: none;" href="">
+                        <div class="border border-2 ml-2" style="height: 33px;">512gb</div>
+                    </a>
+
+
+                </div>
+
+                <div class="dellivery" style="display: flex;">
+                    <p class="mt-3">Dellivery</p>
+                    <i class="fa-solid fa-location-dot mt-4 ml-3" style="color: red;"></i>
+                    <input type="text" class="search-box" placeholder="Enter dellivery pincode">
+                    <button type="button" class="btn text-primary">check</button>
+
+
+                </div>
+
+
+                <div class="details mt-3" style="display: flex;">
+                    Highlights
+                    <div class="highlights" style="font-size: 14px;">
+                        <ul>
+                            <li>128 GB ROM</li>
+                            <li>15.49 cm (6.1 inch) Super Retina XDR Display</li>
+                            <li>48MP + 12MP | 12MP Front Camera</li>
+                            <li>A16 Bionic Chip, 6 Core Processor Processor</li>
+
+
+                    </div>
+                    <div class="payment">
+                        <p class="ml-5 fw-light">Easy payment: options</p>
+
+                    </div>
+                    <div class="payment-options" style="font-size: 14px;">
+                        <ul>
+                            <li>EMI starting from ₹2,810/month</li>
+                            <li>Cash on Delivery</li>
+                            <li>Net banking & Credit/ Debit/ ATM card</li>
+                        </ul>
+                        <a class="ml-4" href="">View more</a>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="seller" style="display: flex;">
+                    <p>Seller:</p>
+                    <a class="ml-5 fw-bold" href="">HydtelRETAILSsales</a>
+                    <div class="rate-box ml-2 bg-primary">
+                        <a class="text-light" style="text-decoration: none; font-size: 14px; padding: 4px;" href="">3.9
+                            &#9733;</a>
+
+
+                    </div>
+
+                </div>
+
+                <div class="seller details" style="line-height: 0.2cm;">
+                    <ul>
+                        <li class="ml-5">7 Days Service Center Replacement/Repair</li>
+                    </ul>
+                    <a class="ml-5" href="">see other sellers</a>
+
+                </div>
+
+                <div class="supercoin">
+                    <div class="supercoin-img mt-5" style="display: flex;">
+                        <img class="ml-4 img-fluid w-25" style="height: 100px;"
+                            src="https://storiesflistgv2.blob.core.windows.net/stories/2019/07/SuperCoins_Main_Banner_.jpg"
+                            alt="no img">
+                        <p class="ml-2 fs-3"><b>For every $100 spent, <br>you earn 2 SuperCoins</b></p>
+
+
+                    </div>
+                    <div class="super-describe mt-4" style="display: flex;">
+                        <p>Description</p>
+                        <p class="ml-3" style="text-align: justify;">Experience the iPhone 15 – your dynamic
+                            companion. Dynamic Island ensures you stay connected, bubbling up alerts
+                            seamlessly
+                            while you're busy. Its durable design features infused glass and aerospace-grade
+                            aluminum, making it dependable and resistant to water and dust. Capture life
+                            with
+                            precision using the 48 MP Main Camera, perfect for any shot. Powered by the A16
+                            Bionic
+                            Processor, it excels in computational photography and more, all while conserving
+                            battery
+                            life. Plus, it's USB-C compatible, simplifying your charging needs. Elevate your
+                            tech
+                            game with the iPhone 15 – innovation at your fingertips. Goodbye cable clutter,
+                            hello
+                            convenience.</p>
+
+                    </div>
+                </div>
+
+                <div class="product-box">
+                    <div class="product">
+                        <h3>Product Description</h3>
+                    </div>
+                    <div class="product dynamic-island" style="display: flex; height: 200px;">
+                        <div>
+                            <h5>Dynamic Island</h5>
+                            <p>Dynamic Island bubbles up alerts and Live Activities — so you don’t miss them
+                                while
+                                you’re doing something else. You can track your next ride, see who’s
+                                calling, check
+                                your
+                                flight status, and so much more.</p>
+                        </div>
+                        <img src="https://rukminim2.flixcart.com/image/200/200/cms-rpd-img/2a68bc53a5b740068a62b8140a19770e_18a8cada497_1.jpeg?q=90"
+                            alt="no">
+
+                    </div>
+                    <div class="product">
+                        <div class="prod-img" style="display: flex;">
+                            <img src="https://rukminim2.flixcart.com/image/200/200/cms-rpd-img/af0f9e1e23c042ce9d8f27b02bb996d3_18a8cacbaad_HighlyDurable.jpeg?q=90"
+                                alt="no img">
+
+                            <div class="product highly-durable">
+                                <h5 class="ml-5">Highly Durable </h5>
+                                <p>The innovative new design features back glass that has color infused
+                                    throughout
+                                    the material. A custom dual ion-exchange process for the glass, and an
+                                    aerospace-grade aluminum enclosure, help make the iPhone 15 incredibly
+                                    durable.
+                                    Dependably durable. The Ceramic Shield front is tougher than any
+                                    smartphone
+                                    glass. Moreover, the iPhone is splash, water, and dust resistant. What a
+                                    relief.
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="product"><a style="text-decoration: none;" href="">View all features</a>
+                    </div>
+                </div>
+
+                <div class="product-box mt-4">
+                    <div class="product">
+                        <h3>Specifications</h3>
+                    </div>
+                    <div class="product" style="height: 360px; display: flex;">
+                        <div class="general fw-light">
+                            <h5>General</h5>
+                            <p> In The Box</p>
+                            <p>model number</p>
+                            <p>Color</p>
+                            <p>Model name</p>
+                            <p>Browse type</p>
+                            <p>SIM type</p>
+                            <p>Hybrid sim slot</p>
+                            <p style="opacity: 0.5;">Touchscreen</p>
+                        </div>
+                        <div class="ml-5" style="margin-top: 32px;">
+                            <p>Handset, USB C Charge Cable (1m), Documentation</p>
+                            <p>MTP43HN/A</p>
+                            <p>iPhone 15</p>
+                            <p>Blue</p>
+                            <p>Smartphones</p>
+                            <p>Dual Sim(Nano + eSIM)</p>
+                            <p>No</p>
+                            <p style="opacity: 0.5;">yes</p>
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="product mt-1" style="height: 40px;">
+                        <a style="text-decoration: none;" href="">Read more</a>
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="product-box mt-4 ">
+                    <div>
+                        <h3 class="ml-4 mt-2">Ratings and Reviews</h3>
+
+                        <div class="rating mt-5 ml-5" style="line-height: 0.5cm;display: flex;">
+                            <div>
+                                <h4>4.7 &#9733;</h4>
+                                <p>555 Ratings & <br class="ml-5">58 Reviews</p>
+                            </div>
+                            <div class="ml-3">
+                                5&#9733;<br>
+                                4&#9733;<br>
+                                3&#9733;<br>
+                                2&#9733;<br>
+                                1&#9733;
+
+                            </div>
+                            <div class="review ml-3">
+                                <div class="bar">
+                                    <div class="star bg-success" style="width: 100%; "></div>
+                                    <!-- 5-star -->
+                                </div>
+                                <div class="bar">
+                                    <div class="star bg-success" style="width: 60%;"></div> <!-- 4-star -->
+                                </div>
+                                <div class="bar">
+                                    <div class="star bg-success" style="width: 52%;"></div> <!-- 3-star -->
+                                </div>
+                                <div class="bar">
+                                    <div class="star" style="width: 30%;"></div> <!-- 2-star -->
+                                </div>
+                                <div class="bar">
+                                    <div class="star bg-danger" style="width: 10%;"></div> <!-- 1-star -->
+                                </div>
+                            </div>
+
+                            <div class="skill-bar">
+                                <div class="circle">
+                                    <div class="text">4.7</div>
+                                </div>
+                                <div class="label">Camera</div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="circle">
+                                    <div class="text">4.3</div>
+                                </div>
+                                <div class="label">Battery</div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="circle">
+                                    <div class="text">4.6</div>
+                                </div>
+                                <div class="label">Display</div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="circle">
+                                    <div class="text">4.7</div>
+                                </div>
+                                <div class="label">Design</div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="product-box reviews">
+
+                        <div class="ml-2 mt-2" style="display: flex;">
+                            <div class="rating-box mt-1"
+                                style="width: 35px; height: 20px; font-size: 10px; border-radius: 4px;">5
+                                &#9733;
+                            </div>
+                            <p class="ml-3 text-dark " style="font-weight: 500;">Awesome</p>
+                        </div>
+                        <p class="ml-3"> Nice 🙂🙂🙂🙂🙂</p>
+                        <div class="images" style="display: flex;">
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAHcARcDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAAECAwQFBgf/xABCEAACAQIDBAYHBwIFAwUAAAAAAQIDEQQFIRIxMlEGEyJBYXEUMzRScoGRFSMkQmKxwVNjFnOCkqElovA1RNHh8f/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/xAAbEQEBAQEBAQEBAAAAAAAAAAAAARExAhJBIf/aAAwDAQACEQMRAD8AsktBpEmroIxslcwqtrtossR2b1C1LtJAQsNI0KEeQ9iPI1iKEh2LrJdwbKfcMGdxCxf1Y1Bd6GCjZDZNOyuQbK5DBm2RqJo2VyCy5DBRYNkvsuQW8C4KNkNkvsuQWXImCjZFs6Giy5BbwGDNshsmmy5C2VyGCjZDZL7eAW8Bgz7InHQ028AsuQwZVEWyzXbwFZchgy7LE4s17K5BsrkMGTZ8BWNlimorSWgwU21CxJrXQZBW4gTaACS5ErBbW5IiqkvvC6K7SIQXbZbBdtCC2wWJ2Cx0ZQsFiywWAhYLE7BYCFgsTsFgIWCxZshs+QFdgsWbPigt4oCuwWJ2XNBpzQELBYn2feX1Ds+8vqBCwWJXj70fqLah78fqBGwWG6lNfnj9RdbS/qR+oBYLEViKLbSqR08SSqQe6SfkwCwWGmn3krAV2CxOwrARsV1Y6F1iFRdkgzNahbUm1qK2plVclYCckAErD3ILdoc9I3IqFLVstgvvIkKS7Ny2n6yIg0WCxJ2SuzPOv3R+ptMXOy3si6kV3nNxOY0cP6yd3yRzp9IIJ9im2TVx28RUrbP3Ki5eLObVp5rUelaMVyjoY/8AEPOkTXSCHfSZdpkOWCzN760n/rK3gcy/qSf+stXSCl/TkSWf0fckNMij0HMven/vF6BmL3yn/uNcc+w73qSNNHMsPX0hUSfJjT5jmfZ2YP8APL/cH2bj3vm/9x3Nue9NNC62XgNT5cT7Kx3vf9wfZON97/uO31rDrWNPlxPsjGe8vqH2Pi/eX1O31rDrnyGny4TyjFe8vqReVYn3l9Tv9c+Quu8C/R81w45NiZK+3H6kvsPEf1I/U7XXW7h9f4D6Plw/sPEf1IkZZRjIawlfyZ31XTJqcWNifNeaWJx+Blae048panXwGbwxFoy7MuRtqUoVYuM4pp8zzuZ4CWCqKtRvsX+hUeqTTV0Fjm5NjfSKSUt51bEVCxCouwy2xCquw7AZmhDtqOxzVC1mA5aAUSlpqRqJteBOXCJ8CMqlFWiidNfeREloRqTdON+8sDr1dqWzHcjjZrmPUR6um+0+83VJ7EG/C5w6GGlmOZRp9zd5PkjU/pyK8DlmJzKo5aqHfOW46jy7J8H2cVilKfekzLnWbdTfA4B7FKnpKUd7ZwG7u7d2aY69XHA5LiuzQxSjN7rsw5hktXBduynSe6cTgpncyXPJ4eaw+MfW4WfZe1rsl0xhdOPIXVx5HocXlEKdZqHA9YvwMsssXcXE1x9iIurtrF2OrPLlGybd3uS3lNXASg9zT7lJExdPL8zqYeap1m5QfPuO/wBmcVKOqZ5SdNptSVmjs5PXcqLpyfDuMWNy66Fh2G0IjQsKxIRURAlYVgqIiVgsQRBNrcOwWAshV5jxNKOJw04Nb0VWLKc7PXcWXGfU1wMnqOhjXTb/APEewjrFPmeNj93nLS989jQ1owfgaYh2IzXZZYRmuywrJYRKwWOaq2uYEpIAJSXZZX7qLZLssio6xIqwz4p8EebNVjHi/XwXgUjNiHeE14WM2T/dQx+IXFCm7GmruqeZXlEIzhXoN2deMorzNw9PJzk5Scm7tu7ETrU5Uqsqc1aUXZkCshqzBAwSbaS1bCvcYCo8RkmCqT1kk4X8tP4LFHUhQp+h4HAYOXGouclyb/8A1l6RqMMTUo4hyS795bj5dbPYSula/gGHxMaNVwrqzT0Y8dj6Lu6KUpy5IDBjsEqkFOK7VtTNlaca0k/I69KEuojt77amSnSVPGStuepn1xrz1rpS2qaZOxVhNaT82XGHRGwWJABELDACNhWJWACNgsSACNiL0ROxGW4Dz9S6zdN980ezw3qY25HjcXpmlN+KPZYT1ETbn+rLCkuyydhSWgGPvALdtjOaoMCQAOe4SXbQ6q0QoySqa95FWGLFe0w8jaYsT7VHyKRmq8NXzOfKU6WFhWpu0oTumdCrwVPiK6FFVcE4vvub8p6Z8ZgqeeQ9KwbjHFJfeUn+bxR5+thq2Hm41aU4Nc0dKUamFrdluEk9GtDfTzvEqKjWjSrr9cdTWM685To1aslGnCUm+5I9FlWTRwCWNzO0dnWFLvbLPtuulajRoUnzjEyTrVcTU26s5VJvmXEtdOhXnjMwlWny0XJcjpwg5PRNmXLcPDDYaeIxMlCmtZNnNx3SySk4YClGEF+eSu38hbiSO5WwCrK8oO/Mohl9KlK7TbXM87HpVmUXd1Iy8HFHWy/pRQxc1Rx9NUpS0VSO75k1cb5oxzX4r/SdGvS2Jb7xeqfM59T2p/CPXF89PB+p+bLynB+oXmy45upAMAEAAAgGACEMAERnuJEZ7gPP47/1CHmj2eD1oI8VmDtj4/I9pgdcOjc453q8T3EhMDJ3si0Sekn5hY5qgAWuAE6j3FS1rEp8S8Aoq8nIirTDiPa15G8w1/bPkVYzVNYVPiJ4Nfh4kYdudaHepXLsNDZpJcjp5Z9q8RhIV12lrzOdPK6kX2dUdtIpqYylSxCoyTu+805uTDLqreuh0MLl8abTlrI3uNmEXaUW9ykv3KOB0sxz66GApu1Okk5pd8n/APR5w6fSNSjnmK2veT+Vkcsw3AMQBXsujmOljMtqYeq71MPrF9+yWTf4qXwnL6IXWJxc3wqjr9TpSdnUqPuiLxPPVuD9nXzLijBeywfNF5h0ILDABAMQCAAABDEAEZ8JIjPhA81mT/Gr5Htcu1wyPFZn7Yj2eVu+Fj8jc453rYJjEBle9+YiUl2n5iOdVGwDACMVe7HBbDa5koqyG1dEUGCt7Y/JG++hgqa4uRYsY6tT0bMouWkKqs/M6SjZabmc/NMM6+Gbjxx1RXlGbQnFYfFO0lomzUuFmuqkc7FYatLGKcY3WlnyOs6btePaXgLzOjlmIWdlfeVYhtUKluReyupHag1zQRw8+wzzHCU8yoLanTjsYiK3q3f/AOeB5o9HTxNbLcVJ0926UXukvEKuDyjMW50qvoNZ74SV4X8CVqV55yvFK24STbSSu3uR3f8ADlNayzLCqHPaNOFhl2WzXoUZZhjPyyt2Ysi6nQovKMoVGS/GYxq8e+MSzMqnU4aNJesqWQ1D0WUsfmdRSxEuGPu+CMODlPMswdea7ENyM2tSO3Qj1dCEeSJgMjRAAAIAAAEAAFxDEAEZ8LJEZ8LA85mytiIvmj1+Tu+Dj5L9jyecq06T5p/ueqyR3wUPJfsbnHO9dEQwAyy4mIc+NiOd6pMAYAMZFDIoe458va5nQOc/aqnmWLF1rnDzXKpbTr4da96O4G9FV5fC5zi8E9hybS/LI6lPpTFr72hfyNOJy2hiNZQSfNHOqdHovgm0VG1dJsK99CQ/8SYJ76UjmPo/PuqEX0fq/wBQGOhVzfKa7vVw8myt4vI5b6Ev+TC8gr900R+wcR7yBjd6VkUNVhnJ+NyFTpBTowcMDhoUlztYyrIcQ98kjXh+j8E0603LwA5sfSs0xHacpc29yPTYLCwwlFQj82ToYanh47NOKSLSKBAAAIdwAQAAAIAABDEAEZ8LJEZ8LA4WeKyw78H+56TIHfAw+FHnc9X3OGfn+53uj0/wlNc4G3O9dkQxAZqnGyNiVXjZHuOd6qLYA1YCBjIjCmc7fianmdHuObHWvU8yxYuC4hlU7gIAGAAAwEFwGAguAxMLiYBcAABgIABiGIAAAABDEAEJ8LJMhPhYHIzxfhMO/FnX6OSvRpfA/wBzk53rgKD5TaOl0bf3NHyf7nRyr0QAIis9XjZBLQnV4yNzneqg9+oBe8gIGABHeFN6ROXSd5zfidSXC/I5VDe/MsWNACGVQAAAwEAAAAAxAAAMQAAAAAAAAAAAAAIAYhiACE+FkyFThYHKzjXLafhUZu6NP7mj5yMGau+XLwqGzoy/u6XxM6Ryr1AhiIrPV4it6F1XjKpbzneqhHeA47wIGCAEFEuGXkcvD7n5nUnwS8jl4fhLFi8BDKoGIAGILgAAAAACABgIAGAguBICNxgMQCAYAAAxAAAQqcLJMhU4WBysy1y2XhMv6Nz2YU/8y3/BXmEb5TVf60XdFLNNNXtL+Do5PViACKorcRU9S6tvRVcxeqErACAyExiWgXCippRm/A5eH4DpV3bDVH+lnNocCLFi4BDKoAAAAAAGIAAAEADAAAQAwABiABgIYAABcAAQABCpwskRqcLAyY6H/Qqr/Uivoo+21+r+DVjlfo/U+v8AyYuir++kv1L+Tbk9gACCqa29FRbW3oqZj11QgBNAZCABoKKmlCfkzl0eBHSxDtQn8LObR4EVYtGICqYAAAAAAAAAIBgAgGIAAAAAAAAAAAAAAAAQAQqcLJsrqcLAMWr5BV+H+Tl9F3+Jl5o6+Ij/ANBqp+42cXoy7YqXy/c25V7cQxBVVbuKGX1tyKXqjHrqkgBbgMqRKO8iSjvArxXs9TyZz6XAjoYz2Wp5GClwIqxYAAVQAAAwAQDAAAAArrVY0abnN2SAmQq1VSpynLckcqpm1Vy+7jFLx1CWOhiaXV4i8Nb3j3lxn6go16+MxcdXGCd7Lkdg40cdSw62cNT073LvNGGzONSSjVjsN9/cWwldIBAZaAAAAAAACAAEQqcLJkKnAwL6qvklRf22ee6OO2Mfy/c9I1fJ5L+0/wBjzPR92xz8v5Nxye7AFuAKrrbjOaK3CZ20Y9KEwBIDIRJERoKrxr/C1PIw0uFGzHP8LIx0+FFixYAhlUAAAAAAAADARx83quVaNNboq/zOwcLNE1jJeKRZ1n1xkAANsA3ZbhVWm5zV4x7ubMJ1coqLq5w/Mncl4s66SGJDMOgEMTAAEADEAAIhV4GTIVeBko3RV8qa/tP9jyeSO2YfJnrqKvlyX9t/sePyl7OY/U6RyfQI8KAUeFeQwqutwMyXNdXgZlsjHpUo7gEgMqaHYIj7wMmP2uoe62hmhwmrMH+G+aM0OFFixIYgKpgAAAfIAABiAAOZm9G8Y1Ut2jOoQqQjUg4yV095YlmvMga8RgKtKo1CLnDuaCnluImrtKPmzesZWQnRnOFWLpN7V9CyphK9OVpU5PxSub8vwLpvraqtL8q5EtJG+ntbEdvitqSuMRh0MQAAgGIAEMTACFThZIhU4GSjqYdfgYr9B4vL9M0t4yPa4X2Smv0nisJ2c3a/W0dHJ7+m704+RIhRd6MH4ImFV1eBmS9jZU4GZdLmPSwJgOwGVCJCW4GBlzF/cpfqRnjwl2Yerj8RTHcixYYxDKoGRGAwEADAAAAAAAAAAAEAAAAACGIAEAABFjEwAhV4GSI1OFko62E9lp/CeJh2c6a/uM9thPZqfwniqnZzyX+b/J0/HJ7vDO+Hp/CiwqwbvhafwouCoT4WZVqzXJaMyJWbZj0sSQBcDKhOwMW8LlGTMeCHxFMdyLMxelPzK47hFhjEMqgAAAAAAAAAGAgAYgABgIAGAgAAAQAACABMYgEQqcDJkKvAyDsYX2an8J4rG9nPp/5v8ntcL7NT+E8XmnZz2p/mHT8cnt8D7JT8i8zZe74SBpCwpbjDNtXsbnuMko3bM+liNN6aoAs0BhT7hLQYeIGLHvWn5kIoljvWUyK3FiwwACqYAAAIAAYgABgIYAMQAAAAAAAACAAAQAACe8YgEQq8DJkKvAyDsYb2en8KPGZ32c7qP9SZ7PD+z0/I8d0hVs5n8jp+OT2GWu+Ej5s1mLKnfBx82bAsD3GXvZqZllvfmZ9KQABkITegd4MisON9bT+YluHjPX0/JiLGoYABQAAAAAAAIAAYyIwGAAAAAAAAIAABAAAAAJjEAFdXgZMrq8DJR2cP6iHwo8h0mVs2b5xR6+h6iHwo8l0pVs0T5wR0/HL9enyd3waN5zcjd8Evl+x0gsJmafE/M0szT42Z9KiAgMgQMAIrBi/aIeQBinfFL4QLGoYAIoYAAAACAADXmMAABgAhgAgGIAABMAuAMAAAAAuJjEwEV1eBlhXV4GQdmh6mHkjynSxWx9N84Hq6PqYeSPL9LV+Lov8AR/J0cv13Oj7vgl5L9jqnH6OO+DXwo7AWEzNU42aWZqvGzNVBsBMDIBkWNEVgxPtf+kZHEe1vyRIsahgAFAAAAAAAAAIBjEMAAAAAEAAFgAAEAAAAAAyJITARXV4GWFdbgZB2qPqoeSPM9L199h3+lnpaPqoeSPOdL17O/M6OTo9GnfCL4V/J2jh9GPZIu/5f5Z3AsDM1bSZpZmr8XyJeClsBMDmqQIind2GFc+o74qbLCl+01H4lqLGjGIZQCGIBgAAAAAAMAAAAAAQwAQDsACYiVhOy3gIB2EACYxMBFdbgZYV1eEg7NL1UPJHnul3q8P5s9DS9VHyR5npbUTq0Kd9Umzo5NvRZ/cL4f5PQnA6Lxth2/wBKR3goM+JXaRoM2Lls2JeDPUnsoCp3mwOarlfa8CXcK+gwrmx1r1PiLUV/+4qeZYixowAChiAAFYaAYAAAADEADAAAAAAAAAAE0MAEIYARAYmBEhV4SZXW4GB2FONPDqc3aKjds8PmWJeYZjKa4b2Xkac0zqri4rD0k4U1o+bL8hymVeqqlVdhb/8A4NuT0OS4fqMDG6s5anQEkopJbkMKDJjVtKPmajPie4l4M8Y2AdwMKXeMQyK569dU8y0pT+/qLxLkWNGAgKGAAAAAAAAADAQAMdyNxgMBXC4DAVx3AAFcAAAEAEWMQCK62sGiwrqdy8SCOA6PLb6ytonrbvPQUqUKMFCnFRS7kShwR8hnRyACC4AZ8TuReUYjciVYzASQGFIYkx9xFcyr2MbJe9qXoqzKFtislw7/ACJUpqUE0WNRYAAUAAADAQwAAABDAQDAQAMAAAAAAYgEAwFcAATGJgIhbbr04c5Ik3ZCwDjUxu02rQX/ACCu8twFfXU1vnH6kXiaS31I/U25LQM7xlD+rD6h6XR7qiAvM+IluQPF0+5t/Iz1KyqVFspktWJoBXA5tIku4jcLgVV0pQalqmcuE5YSrsT4Hws6lR3RgxUVOLUlco1RkpK6ZI4sa9XCvR7UDXSzKlLidn4lVvAojiqUt00S66n7yCrQK+th7yGqsPeQFgEOsh7yH1kfeQEgI7ceaDbjzQEgI7ceYbUeaAkBHbjzHtLmgGAtpcw2lzAAFtLmF1zAYCuuYtpcwGJkJ16cFrJGDFZnGKahqwLsbi40YPXU4EsRUc3JSavyYVq8q0ryZUGam69V76kvqRdWb/O/qRYii/Dyk6q1Z6HCcKPP4RfeI9DhdyJUb47iS3kY7hreZFgCuAUh9xELgV1GYq5sqO5ir7wOfX1OfV0kb63eYaq1KK1OS3Nj62a/MyNgsUT6+p7zGsRU95lVh2KLViavvsaxNX3mVJDsBd6VV95h6VW95lNhkF3pdb3mHpdb3mU2AKv9Mre8w9Nre8yiwAaPTa3vMPTq3vGewAaPTq3vB6dW94zgBo9Ore8ReNrP8zKLBYqJSrTlvkytjACIhsVgFYBgBowa7Z3sM9EcTBx1O3h3ojNG+G4nF6lcHoiSepBNsCLYAJDIoLgQqGOsa5mOuBhrIw1lqb6phrbyikLDEVSCwDCAYhhQMAAAAAAAAAAAAAAAEAAENK4bBOCLLKwGfq22PqWaqcUWbKAw9Sw6lm3ZV9wbKuAsLS2bHVoR0RkpRV0bYaIg1QehNcyqD0Le4gT1AQAf/9k="
+                                alt="no img">
+                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQlC6SwttmWz6x9BXTEG5xmoK4jAJfPL2mh3w3KNAqnCdddVbWl"
+                                alt="no img">
+                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRp0_P41QMCXMGywlwo4BCko1w8EdmAZspuPPyM1JGNvaWm-EP8"
+                                alt="no img">
+
+                        </div>
+                        <div class="mt-2 ml-3 fw-light" style="display: flex;">Jayant Yadav <i
+                                class="ml-3 mt-1 fa-solid fa-certificate"></i> Certified Buyer, Navi Mumbai
+
+                            25 days ago
+                            <div style="margin-left: 350px;"><a href=""><i class="fa-solid fa-thumbs-up"></i></a> <a
+                                    href=""><i class="fa-regular fa-thumbs-down"></i></a></div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="product-box reviews">
+
+                    <div class="ml-2 mt-2 " style="display: flex;">
+                        <div class="rating-box mt-1"
+                            style="width: 35px; height: 20px; font-size: 10px; border-radius: 4px;">5
+                            &#9733;
+                        </div>
+                        <p class="ml-3 text-dark " style="font-weight: 500;">Best in the market!</p>
+                    </div>
+                    <p class="ml-3"> Simply Awesome 🤩</p>
+                    <div class="images" style="display: flex;">
+                        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTFUgM3wiWV3GKh_XR2fSTRMsIz2IP86nS6m6C_sSf-DUvxUOyU"
+                            alt="no img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShYhfFed_1J6jwt7-U1afAlgUhiRRRjK2d3_E0S4SVftm4CVP4"
+                            alt="no img">
+                        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTypQQotZdNEJ-ZmzVMR25FgM-sRgcXG7aIAvcivgyfRSFjTV5f"
+                            alt="no img">
+
+                    </div>
+                    <div class="mt-2 ml-3 fw-light" style="display: flex;">Suman Jain <i
+                            class="ml-3 mt-1 fa-solid fa-certificate"></i> Certified Buyer, Navi Mumbai
+
+                        25 days ago
+                        <div style="margin-left: 350px;"><a href=""><i class="fa-solid fa-thumbs-up"></i></a> <a
+                                href=""><i class="fa-regular fa-thumbs-down"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="product-box reviews">
+
+                    <div class="ml-2 mt-2" style="display: flex;">
+                        <div class="rating-box mt-1"
+                            style="width: 35px; height: 20px; font-size: 10px; border-radius: 4px;">5
+                            &#9733;
+                        </div>
+                        <p class="ml-3 text-dark " style="font-weight: 500;">Great product</p>
+                    </div>
+                    <p class="ml-3"> Awesome phone powerful performance and battery backup are also very
+                        good no
+                        heating issue ☺️</p>
+                    <div class="images" style="display: flex;">
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR2RhDxON5KPebpb1XsQd6SQJSh6PqXDScNscSF7TMoykF2ze6Q"
+                            alt="no img">
+                        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQU7X0tfbFMC0oW3rXtb7ySDjgendLmzrFUlsjpy0yHxHBlRpzg"
+                            alt="no img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQFGlQCh6EWDQYousPTE1e3n5qAUr88dB9VAbYDZFXYbrzMs4C"
+                            alt="no img">
+
+                    </div>
+                    <div class="mt-2 ml-3 fw-light" style="display: flex;">Soman Nair <i
+                            class="ml-3 mt-1 fa-solid fa-certificate"></i> Certified Buyer, Navi Mumbai
+
+                        25 days ago
+                        <div style="margin-left: 350px;"><a href=""><i class="fa-solid fa-thumbs-up"></i></a> <a
+                                href=""><i class="fa-regular fa-thumbs-down"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="product-box" style="height: 60px;">
+                    <div class="mt-3 ml-3" style="display: flex;">
+                        <a class="more-review" style="text-decoration: none;" href="">All 58 reviews
+                        </a>
+                        <a class="fw-lighter text-dark fs-5" style="margin-left: 700px; text-decoration: none;"
+                            href="">+</a>
+                    </div>
+                </div>
+
+                <div class="product-box product-enquiry" style="display: flex; height: 100px;">
+                    <h3 class="ml-3 mt-4">Have doubts regarding this product?</h3>
+                    <button class="btn btn-light text-primary ml-5 mt-4" type="button"
+                        style="width: 300px;color: #c4c9c3; box-shadow:1px 1px 3px 2px #333;height: 50px;">Post
+                        your
+                        question</button>
+
+                </div>
+
+                <div class="" style="height: 70px; margin-left: 200px;">
+
+                    <i class="fa-solid fa-shield"></i>
+                    Safe and Secure Payments.Easy returns.100% Authentic products.
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="col-md-1 " style="background-color: whitesmoke;"></div>
+
+
+
+
+
+        </div>
+
+        <div class="container">
+            <div class="interest p-2 ">
+                <h3>You might be interested in</h3>
+                <div class="row">
+                    <!-- First Card -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://rukminim2.flixcart.com/image/400/400/xif0q/shopsy-power-bank/o/l/w/pp-111-10000-ambrane-original-imagg7nprsfvwttp.jpeg?q=90"
+                                class="card-img-top" alt="Image 1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Power banks</h5>
+                                <p class="card-text">Min. 50% off</p>
+                                <a href="#" class="btn btn-primary">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Card -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://rukminim2.flixcart.com/image/400/400/kltryq80/selfie-stick/p/9/x/selfie-stick-r1-holdup-original-imagyv32ezbk4jds.jpeg?q=90"
+                                class="card-img-top" alt="Image 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Selfie sticks</h5>
+                                <p class="card-text">Min. 50% off</p>
+                                <a href="#" class="btn btn-primary">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Card -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://rukminim2.flixcart.com/image/400/400/jh6l2fk0/headphone/v/t/7/sony-mdr-zx310apbce-original-imaf59ebhygmdhgv.jpeg?q=90"
+                                class="card-img-top" alt="Image 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Wired headphones</h5>
+                                <p class="card-text">Min. 50% off</p>
+                                <a href="#" class="btn btn-primary">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="About mt-5 " style="height: 300px; background-color: #172437;">
+            <div class="row p-3">
+                <div class="col-2 ml-2">
+                    <p style="color: gray;">About</p>
+
+
+                    <a class="text-light" href="">Contact Us</a><br>
+                    <a class="text-light" href="">About Us</a><br>
+                    <a class="text-light" href="">Careers</a><br>
+                    <a class="text-light" href="">Flipkart Stories</a><br>
+                    <a class="text-light" href="">Press</a><br>
+                    <a class="text-light" href="">Flipkart</a><br>
+                    <a class="text-light" href="">Wholesale</a><br>
+                    <a class="text-light" href="">Cleartrip</a><br>
+                    <a class="text-light" href="">Corporate</a><br>
+                    <a class="text-light" href="">Information</a>
+
+
+                </div>
+                <div class="col-2">
+                    <p style="color: gray;">HELP</p>
+                    <a class="text-light" href="">Payments</a><br>
+
+                    <a class="text-light" href="">Shipping </a><br>
+                    <a class="text-light" href="">Cancellation & returns</a><br>
+                    <a class="text-light" href="">FAQ</a><br>
+                    <a class="text-light" href="">Report Infringement</a><br>
+
+                </div>
+                <div class="col-2">
+                    <p style="color: gray;">Consumer policy</p>
+                    <a class="text-light" href="">Cancellation & Returns</a><br>
+                    <a class="text-light" href="">Terms of use </a><br>
+                    <a class="text-light" href="">Security</a><br>
+                    <a class="text-light" href="">Privacy</a><br>
+                    <a class="text-light" href="">Sitemap</a><br>
+                    <a class="text-light" href="">Grievance Redressal</a><br>
+                    <a class="text-light" href="">EPR Compilance</a><br>
+
+
+                </div>
+                <div class="col-1">
+                    <p style="color: grey;">Social</p>
+                    <a class="text-light" href="">Facebook</a><br>
+                    <a class="text-light" href="">Twitter</a><br>
+                    <a class="text-light" href="">Youtube</a><br>
+
+                </div>
+                <div class="col-2 mail" style="border-left: 1px solid white; height: 205px;">
+                    <p style="color: grey;">Mail Us:</p>
+                    <p class="text-light">Flipkart Internet Private Limited,
+
+                        Buildings Alyssa, Begonia &
+
+                        Clove Embassy Tech Village,
+
+                        Outer Ring Road, Devarabeesanahalli Village,
+
+                        Bengaluru, 560103,
+
+                        Karnataka, India</p>
+
+                </div>
+                <div class="col-2 ml-5 address">
+                    <p style="color: grey;">Registered Office Address:</p>
+                    <p class="text-light">Flipkart Internet Private Limited,
+
+                        Buildings Alyssa, Begonia &
+
+                        Clove Embassy Tech Village,
+
+                        Outer Ring Road, Devarabeesanahalli Village,
+
+                        Bengaluru, 560103,
+
+                        Karnataka, India
+
+                        CIN : U51109KA2012PTC066107
+
+                        Telephone: <a href="">044-45614700</a></p>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+        <div class="footer"
+            style="border-top: 1px solid white; display: flex; height: 50px; background-color: #172437;">
+            <div class="text-light footer-icons" style="display: flex; padding: 4px;">
+                <div class="icon1" style="margin-left: 140px;"> <i class="fa-solid fa-suitcase" style="color: gold;"></i> Become a
+                    seller</div>
+                <div class="ml-5 "> <i class="fa-solid fa-sun" style="color: gold;"></i> Advertise</div>
+                <div class="ml-5"> <i class="fa-solid fa-gifts" style="color: gold;"></i> Gift Cards</div>
+                <div class="ml-5"> <i class="fa-regular fa-circle-question" style="color: gold;"></i> Help Center</div>
+                <div class="ml-5">
+                    <footer>&copy; 2007-2023 Flipkart.com</footer>
+                </div>
+                <div class="ml-5 footer-img" style="display: flex;">
+                    <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/payment-method_69e7ec.svg"
+                        style="height: 20px; padding-top: 3px;" alt="no img">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+    <!-- Add Bootstrap and Font Awesome scripts if not already included -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
